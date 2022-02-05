@@ -1,0 +1,14 @@
+[Unit]
+Description=Websocket gateway to IRC networks
+Documentation=https://github.com/kiwiirc/webircgateway
+After=network.target
+
+[Service]
+User=__APP__
+Group=__APP__
+ExecStart=__WEBIRCGATEWAY_PATH__/webircgateway --config=__WEBIRCGATEWAY_PATH__/config.conf
+ExecReload=/usr/bin/kill -USR1 $MAINPID
+LimitNOFILE=1048576
+
+[Install]
+WantedBy=multi-user.target

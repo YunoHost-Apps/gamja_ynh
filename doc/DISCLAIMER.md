@@ -1,0 +1,1 @@
+`/?server=/webirc/websocket/`
