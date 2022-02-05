@@ -1,1 +1,1 @@
-`/?server=/webirc/websocket/`
+`https://domain.tld/?server=/webirc/websocket/`
