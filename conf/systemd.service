@@ -1,6 +1,5 @@
 [Unit]
 Description=Websocket gateway to IRC networks
-Documentation=https://github.com/kiwiirc/webircgateway
 After=network.target
 
 [Service]
