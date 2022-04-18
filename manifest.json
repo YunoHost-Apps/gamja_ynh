@@ -7,10 +7,10 @@
         "fr": "Simple IRC web client"
     },
     "version": "1.0~ynh1",
-    "url": "https://example.com",
+    "url": "https://web.libera.chat/gamja/",
     "upstream": {
         "license": "free",
-        "website": "https://example.com",
+        "website": "https://web.libera.chat/gamja/",
         "demo": "https://web.libera.chat/gamja/",
         "code": "https://sr.ht/~emersion/gamja/"
     },
