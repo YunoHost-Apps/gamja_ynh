@@ -4,8 +4,10 @@
 # COMMON VARIABLES
 #=================================================
 
-# nodejs version
+# dependencies used by the app
+pkg_dependencies=""
 nodejs_version=16
+go_version=1.13
 
 #=================================================
 # PERSONAL HELPERS
