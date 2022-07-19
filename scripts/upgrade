@@ -140,6 +140,8 @@ tempdir="$(mktemp -d)"
 ynh_setup_source --dest_dir=$tempdir --source_id="webircgateway"
 pushd $tempdir
 	ynh_use_go
+	export GOPATH="$tempdir/go"
+	export GOCACHE="$tempdir/.cache"
 	ynh_go build
 popd
 
