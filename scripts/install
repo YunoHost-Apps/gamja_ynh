@@ -7,12 +7,16 @@
 #=================================================
 
 source _common.sh
+source ynh_install_go
 source /usr/share/yunohost/helpers
 
 #=================================================
 # MANAGE SCRIPT FAILURE
 #=================================================
 
+ynh_clean_setup () {
+	ynh_clean_check_starting
+}
 # Exit if an error occurs during the execution of the script
 ynh_abort_if_errors
 
@@ -60,8 +64,8 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 #=================================================
 ynh_script_progression --message="Installing dependencies..." --weight=7
 
-# Install Nodejs
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
+ynh_exec_warn_less ynh_install_go --go_version=$go_version
 
 #=================================================
 # CREATE DEDICATED USER
@@ -78,7 +82,7 @@ ynh_script_progression --message="Setting up source files..." --weight=5
 
 ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 # Download, check integrity, uncompress and patch the source from app.src
-git clone https://git.sr.ht/~emersion/gamja "$final_path" --quiet
+ynh_setup_source --dest_dir="$final_path"
 
 chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
@@ -92,10 +96,12 @@ ynh_script_progression --message="Configuring NGINX web server..." --weight=1
 # Create a dedicated NGINX config
 ynh_add_nginx_config
 
-#==============================================
-# INSTALL SUTOM
-#==============================================
-ynh_script_progression --message="Building Gamja... (this will take some time and resources!)" --weight=20
+#=================================================
+# SPECIFIC SETUP
+#=================================================
+# BUILD APP
+#=================================================
+ynh_script_progression --message="Building app... (this will take some time and resources!)" --weight=20
 
 pushd "$final_path"
 	ynh_use_nodejs
@@ -114,15 +120,27 @@ chmod 744 "$final_path/config.json"
 chown $app:www-data "$final_path/config.json"
 
 #=================================================
-#CREAT GATEWAYPATH
+# BUILD WEBIRCGATEWAY
 #=================================================
-ynh_script_progression --message="Setting up gatheway path..." --weight=4
+ynh_script_progression --message="Building webircgateway..." --weight=4
 
 webircgateway_path=/var/www/webircgateway
 ynh_app_setting_set --app=$app --key=webircgateway_path --value=$webircgateway_path
 mkdir -p $webircgateway_path
 
-mv ../sources/webircgateway $webircgateway_path/webircgateway
+tempdir="$(mktemp -d)"
+ynh_setup_source --dest_dir=$tempdir --source_id="webircgateway"
+pushd $tempdir
+	ynh_use_go
+	export GOPATH="$tempdir/go"
+	export GOCACHE="$tempdir/.cache"
+	ynh_go build
+popd
+
+mv -f $tempdir/webircgateway $webircgateway_path/webircgateway
+
+ynh_secure_remove --file="$tempdir"
+ynh_remove_go
 
 chmod 755 "$webircgateway_path"
 chmod -R o-rwx "$webircgateway_path"
@@ -143,11 +161,13 @@ ynh_script_progression --message="Configuring a systemd service..." --weight=1
 ynh_add_systemd_config
 
 #=================================================
+# GENERIC FINALIZATION
+#=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app --description="Simple IRC web client" --log="/var/log/$app/$app.log"
+yunohost service add $app --description="Simple IRC web client"
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -155,7 +175,7 @@ yunohost service add $app --description="Simple IRC web client" --log="/var/log/
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
+ynh_systemd_action --service_name=$app --action="start" --log_path="systemd" --line_match="Using config"
 
 #=================================================
 # RELOAD NGINX

@@ -6,15 +6,15 @@
         "en": "Simple IRC web client",
         "fr": "Simple IRC web client"
     },
-    "version": "1.0~ynh1",
+    "version": "1.0.0-beta.6~ynh2",
     "url": "https://web.libera.chat/gamja/",
     "upstream": {
-        "license": "free",
+        "license": "AGPL-3.0-or-later",
         "website": "https://web.libera.chat/gamja/",
         "demo": "https://web.libera.chat/gamja/",
         "code": "https://sr.ht/~emersion/gamja/"
     },
-    "license": "free",
+    "license": "AGPL-3.0-or-later",
     "maintainer": {
         "name": "",
         "email": ""
@@ -27,7 +27,7 @@
         "nginx"
     ],
     "arguments": {
-        "install" : [
+        "install": [
             {
                 "name": "domain",
                 "type": "domain"
