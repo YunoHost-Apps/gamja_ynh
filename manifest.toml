@@ -1,0 +1,51 @@
+packaging_format = 2
+
+id = "gamja"
+name = "Gamja"
+description.en = "Simple IRC web client"
+description.fr = "Simple IRC web client"
+
+version = "1.0.0-beta.8~ynh1"
+
+maintainers = []
+
+[upstream]
+license = "AGPL-3.0-or-later"
+website = "https://web.libera.chat/gamja/"
+demo = "https://web.libera.chat/gamja/"
+code = "https://sr.ht/~emersion/gamja/"
+
+[integration]
+yunohost = ">= 11.1.16"
+architectures = "all"
+multi_instance = true
+ldap = false
+sso = true
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+    [install.domain]
+    type = "domain"
+    full_domain = true
+
+[resources]
+    [resources.sources]
+        [resources.sources.webircgateway]
+        url = "https://github.com/kiwiirc/webircgateway/archive/a152bf28aa3ba37c0be78b1ef1c26e7f48ce84c2.tar.gz"
+        sha256 = "a2a6a08596ac1c2c71af09427490b7338d963e6f1c81ea3540e7be4092990340"
+        autoupdate.upstream = "https://github.com/kiwiirc/webircgateway"
+        autoupdate.strategy = "latest_github_commit"
+
+        [resources.sources.main]
+        url = "https://git.sr.ht/~emersion/gamja/archive/v1.0.0-beta.8.tar.gz"
+        sha256 = "4e4aad554d5cf785d1cd626d27877cb68d6e8a65221da52a9e92c109f4d25845"
+
+    [resources.ports]
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"

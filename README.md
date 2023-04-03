@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # Gamja for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/gamja.svg)](https://dash.yunohost.org/appci/app/gamja) ![Working status](https://ci-apps.yunohost.org/ci/badges/gamja.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/gamja.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/gamja.svg)](https://dash.yunohost.org/appci/app/gamja) ![Working status](https://ci-apps.yunohost.org/ci/badges/gamja.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/gamja.maintain.svg)
+
 [![Install Gamja with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gamja)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -17,7 +18,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 A simple IRC web client.
 
-**Shipped version:** 1.0.0-beta.6~ynh2
+**Shipped version:** 1.0.0-beta.8~ynh1
 
 **Demo:** https://web.libera.chat/gamja/
 
@@ -25,9 +26,6 @@ A simple IRC web client.
 
 ![Screenshot of Gamja](./doc/screenshots/screenshot.png)
 
-## Disclaimers / important information
-
-`https://domain.tld/?server=/webirc/websocket/`
 ## Documentation and resources
 
 * Official app website: <https://web.libera.chat/gamja/>
