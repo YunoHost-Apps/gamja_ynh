@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # Gamja for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/gamja.svg)](https://dash.yunohost.org/appci/app/gamja) ![Working status](https://ci-apps.yunohost.org/ci/badges/gamja.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/gamja.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/gamja.svg)](https://dash.yunohost.org/appci/app/gamja) ![Working status](https://ci-apps.yunohost.org/ci/badges/gamja.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/gamja.maintain.svg)
+
 [![Install Gamja with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gamja)
 
 *[Lire ce readme en français.](./README_fr.md)*
