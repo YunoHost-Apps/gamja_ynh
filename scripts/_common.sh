@@ -6,7 +6,7 @@
 
 # dependencies used by the app
 nodejs_version=16
-go_version=1.13
+go_version=1.20
 
 #=================================================
 # PERSONAL HELPERS
