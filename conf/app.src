@@ -1,5 +1,5 @@
-SOURCE_URL=https://git.sr.ht/~emersion/gamja/archive/v1.0.0-beta.6.tar.gz
-SOURCE_SUM=d1b4ddeb681f388c7b9ea469b7bc8c9cb7f0e6f9eb0b97ba8b77c94de281bf0c
+SOURCE_URL=https://git.sr.ht/~emersion/gamja/archive/v1.0.0-beta.8.tar.gz
+SOURCE_SUM=4e4aad554d5cf785d1cd626d27877cb68d6e8a65221da52a9e92c109f4d25845
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
