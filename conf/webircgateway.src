@@ -1,7 +1,0 @@
-SOURCE_URL=https://github.com/kiwiirc/webircgateway/archive/a152bf28aa3ba37c0be78b1ef1c26e7f48ce84c2.tar.gz
-SOURCE_SUM=a2a6a08596ac1c2c71af09427490b7338d963e6f1c81ea3540e7be4092990340
-SOURCE_SUM_PRG=sha256sum
-SOURCE_FORMAT=tar.gz
-SOURCE_IN_SUBDIR=true
-SOURCE_FILENAME=
-SOURCE_EXTRACT=true

@@ -26,9 +26,6 @@ A simple IRC web client.
 
 ![Capture d’écran de Gamja](./doc/screenshots/screenshot.png)
 
-## Avertissements / informations importantes
-
-`https://domain.tld/?server=/webirc/websocket/`
 ## Documentations et ressources
 
 * Site officiel de l’app : <https://web.libera.chat/gamja/>
