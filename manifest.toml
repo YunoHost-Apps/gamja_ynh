@@ -32,8 +32,8 @@ ram.runtime = "50M"
 [resources]
     [resources.sources]
         [resources.sources.webircgateway]
-        url = "https://github.com/kiwiirc/webircgateway/archive/a152bf28aa3ba37c0be78b1ef1c26e7f48ce84c2.tar.gz"
-        sha256 = "a2a6a08596ac1c2c71af09427490b7338d963e6f1c81ea3540e7be4092990340"
+        url = "https://github.com/kiwiirc/webircgateway/archive/bb110ab6c4ca864b623070e5d5c0a95486390a9b.tar.gz"
+        sha256 = "96ae87e0c4148dac731e5709068de41803ff464edd53821eaf1ffcc7e4c0e1ce"
         autoupdate.upstream = "https://github.com/kiwiirc/webircgateway"
         autoupdate.strategy = "latest_github_commit"
 
