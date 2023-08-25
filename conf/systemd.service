@@ -1,5 +1,5 @@
 [Unit]
-Description=Websocket gateway to IRC networks
+Description=Gamja: Websocket gateway to IRC networks
 After=network.target
 
 [Service]
