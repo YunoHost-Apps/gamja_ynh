@@ -5,7 +5,7 @@ name = "Gamja"
 description.en = "Simple IRC web client"
 description.fr = "Simple IRC web client"
 
-version = "1.0.0-beta.8~ynh1"
+version = "1.0.0-beta.8~ynh2"
 
 maintainers = ["eric_G"]
 
