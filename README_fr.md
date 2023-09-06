@@ -18,7 +18,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 A simple IRC web client.
 
-**Version incluse :** 1.0.0-beta.8~ynh2
+**Version incluse :** 1.0.0-beta.8~ynh3
 
 **Démo :** https://web.libera.chat/gamja/
 

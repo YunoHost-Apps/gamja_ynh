@@ -5,7 +5,7 @@
 #=================================================
 
 # dependencies used by the app
-nodejs_version=16
+nodejs_version=20
 go_version=1.20
 
 #=================================================
