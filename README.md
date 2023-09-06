@@ -18,7 +18,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 A simple IRC web client.
 
-**Shipped version:** 1.0.0-beta.8~ynh1
+**Shipped version:** 1.0.0-beta.8~ynh2
 
 **Demo:** https://web.libera.chat/gamja/
 
