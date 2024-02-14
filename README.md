@@ -30,7 +30,7 @@ A simple IRC web client.
 
 * Official app website: <https://web.libera.chat/gamja/>
 * Upstream app code repository: <https://sr.ht/~emersion/gamja/>
-* YunoHost documentation for this app: <https://yunohost.org/app_gamja>
+* YunoHost Store: <https://apps.yunohost.org/app/gamja>
 * Report a bug: <https://github.com/YunoHost-Apps/gamja_ynh/issues>
 
 ## Developer info
