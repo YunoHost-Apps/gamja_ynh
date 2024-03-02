@@ -19,8 +19,11 @@ code = "https://sr.ht/~emersion/gamja/"
 yunohost = ">= 11.2"
 architectures = "all"
 multi_instance = true
+
 ldap = false
+
 sso = true
+
 disk = "50M"
 ram.build = "50M"
 ram.runtime = "50M"
