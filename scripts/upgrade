@@ -34,7 +34,7 @@ then
 	ynh_script_progression --message="Upgrading source files..." --weight=3
 
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$install_dir" --keep="config.json"
+	ynh_setup_source --dest_dir="$install_dir" --full_replace=1 --keep="config.json"
 fi
 
 chmod -R o-rwx "$install_dir"
@@ -87,7 +87,7 @@ ynh_script_progression --message="Building webircgateway..." --weight=4
 mkdir -p $webircgateway_path
 
 tempdir="$(mktemp -d)"
-ynh_setup_source --dest_dir=$tempdir --source_id="webircgateway"
+ynh_setup_source --dest_dir=$tempdir --source_id="webircgateway" --full_replace=1
 pushd $tempdir
 	ynh_use_go
 	export GOPATH="$tempdir/go"
