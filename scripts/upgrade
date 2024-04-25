@@ -28,6 +28,7 @@ ynh_systemd_action --service_name=$app --action="stop" --log_path="systemd"
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
+ynh_script_progression --message="Upgrading source files..." --weight=3
 
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
@@ -65,8 +66,8 @@ ynh_script_progression --message="Building app... (this will take some time and 
 
 pushd "$install_dir"
 	ynh_use_nodejs
-	ynh_exec_warn_less npm i -g npm
-	ynh_exec_warn_less npm install --production
+	ynh_exec_warn_less sudo -u $app env $ynh_node_load_PATH $ynh_npm i -g npm
+	ynh_exec_warn_less sudo -u $app env $ynh_node_load_PATH $ynh_npm install --production
 popd
 
 #=================================================
@@ -74,7 +75,7 @@ popd
 #=================================================
 ynh_script_progression --message="Updating a configuration file..." --weight=1
 
-ynh_add_config --template="../conf/config.json" --destination="$install_dir/config.json"
+ynh_add_config --template="config.json" --destination="$install_dir/config.json"
 
 chmod 744 "$install_dir/config.json"
 chown $app:www-data "$install_dir/config.json"
@@ -105,7 +106,7 @@ chmod -R o-rwx "$webircgateway_path"
 chown -R $app:www-data "$webircgateway_path"
 chmod +x "$webircgateway_path/webircgateway"
 
-ynh_add_config --template="../conf/config.conf" --destination="$webircgateway_path/config.conf"
+ynh_add_config --template="config.conf" --destination="$webircgateway_path/config.conf"
 
 chmod 755 "$webircgateway_path/config.conf"
 chown $app:www-data "$webircgateway_path/config.conf"
@@ -125,7 +126,7 @@ ynh_add_systemd_config
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app --description="Simple IRC web client"
+yunohost service add $app --description="Simple IRC web client" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE

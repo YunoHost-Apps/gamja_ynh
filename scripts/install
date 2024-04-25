@@ -13,7 +13,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-#REMOVEME? ynh_script_progression --message="Installing dependencies..." --weight=7
+ynh_script_progression --message="Installing dependencies..." --weight=7
 
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 ynh_exec_warn_less ynh_install_go --go_version=$go_version
@@ -23,7 +23,6 @@ ynh_exec_warn_less ynh_install_go --go_version=$go_version
 #=================================================
 ynh_script_progression --message="Setting up source files..." --weight=5
 
-# Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
 
 chmod -R o-rwx "$install_dir"
@@ -46,8 +45,8 @@ ynh_script_progression --message="Building app... (this will take some time and 
 
 pushd "$install_dir"
 	ynh_use_nodejs
-	ynh_exec_warn_less npm i -g npm
-	ynh_exec_warn_less npm install --production
+	ynh_exec_warn_less sudo -u $app env $ynh_node_load_PATH $ynh_npm i -g npm
+	ynh_exec_warn_less sudo -u $app env $ynh_node_load_PATH $ynh_npm install --production
 popd
 
 #=================================================
@@ -55,7 +54,7 @@ popd
 #=================================================
 ynh_script_progression --message="Adding a configuration file..." --weight=2
 
-ynh_add_config --template="../conf/config.json" --destination="$install_dir/config.json"
+ynh_add_config --template="config.json" --destination="$install_dir/config.json"
 
 chmod 744 "$install_dir/config.json"
 chown $app:www-data "$install_dir/config.json"
@@ -108,7 +107,7 @@ ynh_add_systemd_config
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app --description="Simple IRC web client"
+yunohost service add $app --description="Simple IRC web client" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
