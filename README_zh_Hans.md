@@ -3,7 +3,7 @@
 请勿手动编辑。
 -->
 
-# YunoHost 的 Gamja
+# YunoHost 上的 Gamja
 
 [![集成程度](https://dash.yunohost.org/integration/gamja.svg)](https://dash.yunohost.org/appci/app/gamja) ![工作状态](https://ci-apps.yunohost.org/ci/badges/gamja.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/gamja.maintain.svg)
 
