@@ -45,8 +45,8 @@ ynh_script_progression --message="Building app... (this will take some time and 
 
 pushd "$install_dir"
 	ynh_use_nodejs
-	ynh_exec_warn_less sudo -u $app env $ynh_node_load_PATH $ynh_npm i -g npm
-	ynh_exec_warn_less sudo -u $app env $ynh_node_load_PATH $ynh_npm install --production
+	ynh_exec_warn_less npm i -g npm
+	ynh_exec_warn_less npm install --production
 popd
 
 #=================================================
