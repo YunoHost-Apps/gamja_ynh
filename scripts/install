@@ -1,19 +1,16 @@
 #!/bin/bash
 
 #=================================================
-# GENERIC START
-#=================================================
 # IMPORT GENERIC HELPERS
 #=================================================
 
 source _common.sh
-source ynh_install_go
 source /usr/share/yunohost/helpers
 
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-#REMOVEME? ynh_script_progression --message="Installing dependencies..." --weight=7
+ynh_script_progression --message="Installing dependencies..." --weight=7
 
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 ynh_exec_warn_less ynh_install_go --go_version=$go_version
@@ -23,22 +20,11 @@ ynh_exec_warn_less ynh_install_go --go_version=$go_version
 #=================================================
 ynh_script_progression --message="Setting up source files..." --weight=5
 
-# Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
 
 chmod -R o-rwx "$install_dir"
 chown -R $app:www-data "$install_dir"
 
-#=================================================
-# NGINX CONFIGURATION
-#=================================================
-ynh_script_progression --message="Configuring NGINX web server..." --weight=1
-
-# Create a dedicated NGINX config
-ynh_add_nginx_config
-
-#=================================================
-# SPECIFIC SETUP
 #=================================================
 # BUILD APP
 #=================================================
@@ -55,7 +41,7 @@ popd
 #=================================================
 ynh_script_progression --message="Adding a configuration file..." --weight=2
 
-ynh_add_config --template="../conf/config.json" --destination="$install_dir/config.json"
+ynh_add_config --template="config.json" --destination="$install_dir/config.json"
 
 chmod 744 "$install_dir/config.json"
 chown $app:www-data "$install_dir/config.json"
@@ -88,35 +74,31 @@ chmod -R o-rwx "$webircgateway_path"
 chown -R $app:www-data "$webircgateway_path"
 chmod +x "$webircgateway_path/webircgateway"
 
-ynh_add_config --template="../conf/config.conf" --destination="$webircgateway_path/config.conf"
+ynh_add_config --template="config.conf" --destination="$webircgateway_path/config.conf"
 
 chmod 755 "$webircgateway_path/config.conf"
 chown $app:www-data "$webircgateway_path/config.conf"
 
 #=================================================
-# SETUP SYSTEMD
+# SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring a systemd service..." --weight=1
+ynh_script_progression --message="Adding system configurations related to $app..." --weight=1
+
+# Create a dedicated NGINX config
+ynh_add_nginx_config
 
 # Create a dedicated systemd config
 ynh_add_systemd_config
 
-#=================================================
-# GENERIC FINALIZATION
-#=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
-
-yunohost service add $app --description="Simple IRC web client"
+yunohost service add "$app" --description="Simple IRC web client" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
+ynh_script_progression --message="Starting $app's systemd service..." --weight=1
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action="start" --log_path="systemd" --line_match="Using config"
+ynh_systemd_action --service_name="$app" --action="start" --log_path="systemd" --line_match="Using config"
 
 #=================================================
 # END OF SCRIPT
