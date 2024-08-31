@@ -10,71 +10,70 @@ source /usr/share/yunohost/helpers
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Installing dependencies..." --weight=7
+ynh_script_progression "Installing dependencies..."
 
-ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
-ynh_exec_warn_less ynh_install_go --go_version=$go_version
+ynh_nodejs_install
+ynh_go_install
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --weight=5
+ynh_script_progression "Setting up source files..."
 
 ynh_setup_source --dest_dir="$install_dir"
 
-chmod -R o-rwx "$install_dir"
-chown -R $app:www-data "$install_dir"
-
+#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
+#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:www-data "$install_dir"
 #=================================================
 # BUILD APP
 #=================================================
-ynh_script_progression --message="Building app... (this will take some time and resources!)" --weight=20
+ynh_script_progression "Building app... (this will take some time and resources!)"
 
 pushd "$install_dir"
-	ynh_use_nodejs
-	ynh_exec_warn_less npm i -g npm
-	ynh_exec_warn_less npm install --production
+
+	ynh_hide_warnings npm i -g npm
+	ynh_hide_warnings npm install --production
 popd
 
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding a configuration file..." --weight=2
+ynh_script_progression "Adding $app's configuration..."
 
-ynh_add_config --template="config.json" --destination="$install_dir/config.json"
+ynh_config_add --template="config.json" --destination="$install_dir/config.json"
 
-chmod 744 "$install_dir/config.json"
-chown $app:www-data "$install_dir/config.json"
+#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 744 "$install_dir/config.json"
+#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown $app:www-data "$install_dir/config.json"
 
 #=================================================
 # BUILD WEBIRCGATEWAY
 #=================================================
-ynh_script_progression --message="Building webircgateway..." --weight=4
+ynh_script_progression "Building webircgateway..."
 
 webircgateway_path=/var/www/webircgateway
-ynh_app_setting_set --app=$app --key=webircgateway_path --value=$webircgateway_path
+ynh_app_setting_set --key=webircgateway_path --value=$webircgateway_path
 mkdir -p $webircgateway_path
 
 tempdir="$(mktemp -d)"
 ynh_setup_source --dest_dir=$tempdir --source_id="webircgateway"
 pushd $tempdir
-	ynh_use_go
+
 	export GOPATH="$tempdir/go"
 	export GOCACHE="$tempdir/.cache"
-	ynh_go build
+	go build
 popd
 
 mv -f $tempdir/webircgateway $webircgateway_path/webircgateway
 
-ynh_secure_remove --file="$tempdir"
-ynh_remove_go
+ynh_safe_rm "$tempdir"
+ynh_go_remove
 
 chmod 755 "$webircgateway_path"
 chmod -R o-rwx "$webircgateway_path"
 chown -R $app:www-data "$webircgateway_path"
 chmod +x "$webircgateway_path/webircgateway"
 
-ynh_add_config --template="config.conf" --destination="$webircgateway_path/config.conf"
+ynh_config_add --template="config.conf" --destination="$webircgateway_path/config.conf"
 
 chmod 755 "$webircgateway_path/config.conf"
 chown $app:www-data "$webircgateway_path/config.conf"
@@ -82,26 +81,26 @@ chown $app:www-data "$webircgateway_path/config.conf"
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding system configurations related to $app..." --weight=1
+ynh_script_progression "Adding system configurations related to $app..."
 
 # Create a dedicated NGINX config
-ynh_add_nginx_config
+ynh_config_add_nginx
 
 # Create a dedicated systemd config
-ynh_add_systemd_config
+ynh_config_add_systemd
 
 yunohost service add "$app" --description="Simple IRC web client" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting $app's systemd service..." --weight=1
+ynh_script_progression "Starting $app's systemd service..."
 
 # Start a systemd service
-ynh_systemd_action --service_name="$app" --action="start" --log_path="systemd" --line_match="Using config"
+ynh_systemctl --service="$app" --action="start" --log_path="systemd" --wait_until="Using config"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed" --last
+ynh_script_progression "Installation of $app completed"
