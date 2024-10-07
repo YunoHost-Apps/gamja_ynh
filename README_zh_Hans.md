@@ -5,7 +5,7 @@
 
 # YunoHost 上的 Gamja
 
-[![集成程度](https://dash.yunohost.org/integration/gamja.svg)](https://dash.yunohost.org/appci/app/gamja) ![工作状态](https://ci-apps.yunohost.org/ci/badges/gamja.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/gamja.maintain.svg)
+[![集成程度](https://dash.yunohost.org/integration/gamja.svg)](https://ci-apps.yunohost.org/ci/apps/gamja/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/gamja.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/gamja.maintain.svg)
 
 [![使用 YunoHost 安装 Gamja](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gamja)
 
@@ -18,7 +18,7 @@
 
 A simple IRC web client.
 
-**分发版本：** 1.0.0-beta.9~ynh1
+**分发版本：** 1.0.0-beta.9~ynh2
 
 **演示：** <https://web.libera.chat/gamja/>
 
