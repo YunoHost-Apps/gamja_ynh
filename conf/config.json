@@ -1,10 +1,6 @@
 {
 	"server": {
-		"url": "/?server=/webirc/websocket/",
-		"autojoin": "#yunohost",
-		"auth": "optional",
-		"nick": "asdf",
-		"autoconnect": true,
-		"ping": 60
+		"url": "wss://irc.libera.chat",
+		"autojoin": "#gamja"
 	}
 }

@@ -13,10 +13,10 @@ maintainers = ["eric_G"]
 license = "AGPL-3.0-or-later"
 website = "https://web.libera.chat/gamja/"
 demo = "https://web.libera.chat/gamja/"
-code = "https://sr.ht/~emersion/gamja/"
+code = "https://codeberg.org/emersion/gamja"
 
 [integration]
-yunohost = ">= 11.2.18"
+yunohost = ">= 11.2.30"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
@@ -38,15 +38,11 @@ ram.runtime = "50M"
 
 [resources]
     [resources.sources]
-        [resources.sources.webircgateway]
-        url = "https://github.com/kiwiirc/webircgateway/archive/4ee70fb5732f543014223c827a18e7c05b063a9d.tar.gz"
-        sha256 = "71582f5cf49b222910351d888cfff8152d5eee376c9a069aa01b03eaf5cf6273"
-        autoupdate.upstream = "https://github.com/kiwiirc/webircgateway"
-        autoupdate.strategy = "latest_github_commit"
-
         [resources.sources.main]
-        url = "https://git.sr.ht/~emersion/gamja/refs/download/v1.0.0-beta.9/gamja-1.0.0-beta.9.tar.gz"
-        sha256 = "0873517364cc6e674296b2cdbd17870f864df62dec00f844516d70da18ff96af"
+        url = "https://codeberg.org/emersion/gamja/archive/daef362931a633a7f7fd84fbe81f8cf130d951ce.tar.gz"
+        sha256 = "c8a227bf43ef1c798972e09dde180581999790e5ff7c7d7e4f29cbd03a8b2fcb"
+        autoupdate.upstream = "https://codeberg.org/emersion/gamja"
+        autoupdate.strategy = "latest_github_commit"
 
     [resources.ports]
 

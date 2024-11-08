@@ -3,11 +3,15 @@ Description=Gamja: Websocket gateway to IRC networks
 After=network.target
 
 [Service]
+Type=simple
 User=__APP__
 Group=__APP__
-ExecStart=__WEBIRCGATEWAY_PATH__/webircgateway --config=__WEBIRCGATEWAY_PATH__/config.conf
-ExecReload=/usr/bin/kill -USR1 $MAINPID
-LimitNOFILE=1048576
+Environment="PATH=__PATH_WITH_NODEJS__"
+Environment="NODE_ENV=production"
+WorkingDirectory=__INSTALL_DIR__/
+ExecStart=__NODEJS_DIR__/npm start -- irc.libera.chat
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
+
