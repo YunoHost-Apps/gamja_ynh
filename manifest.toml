@@ -13,7 +13,7 @@ maintainers = ["eric_G"]
 license = "AGPL-3.0-or-later"
 website = "https://web.libera.chat/gamja/"
 demo = "https://web.libera.chat/gamja/"
-code = "https://sr.ht/~emersion/gamja/"
+code = "https://codeberg.org/emersion/gamja"
 
 [integration]
 yunohost = ">= 11.2.12"
