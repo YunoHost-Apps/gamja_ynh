@@ -5,7 +5,9 @@ NON debe editarse manualmente.
 
 # Gamja para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/gamja.svg)](https://ci-apps.yunohost.org/ci/apps/gamja/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/gamja.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/gamja.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/gamja)](https://ci-apps.yunohost.org/ci/apps/gamja/)
+![Estado de funcionamento](https://apps.yunohost.org/badge/state/gamja)
+![Estado de mantemento](https://apps.yunohost.org/badge/maintained/gamja)
 
 [![Instalar Gamja con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gamja)
 
@@ -29,7 +31,7 @@ A simple IRC web client.
 ## Documentación e recursos
 
 - Web oficial da app: <https://web.libera.chat/gamja/>
-- Repositorio de orixe do código: <https://sr.ht/~emersion/gamja/>
+- Repositorio de orixe do código: <https://codeberg.org/emersion/gamja>
 - Tenda YunoHost: <https://apps.yunohost.org/app/gamja>
 - Informar dun problema: <https://github.com/YunoHost-Apps/gamja_ynh/issues>
 
