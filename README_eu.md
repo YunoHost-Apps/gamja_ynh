@@ -20,7 +20,7 @@ EZ editatu eskuz.
 
 A simple IRC web client.
 
-**Paketatutako bertsioa:** 1.0.0-beta.9~ynh2
+**Paketatutako bertsioa:** 1.0.0-beta.10~ynh1
 
 **Demoa:** <https://web.libera.chat/gamja/>
 

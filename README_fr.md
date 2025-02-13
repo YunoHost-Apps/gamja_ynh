@@ -20,7 +20,7 @@ Il NE doit PAS être modifié à la main.
 
 A simple IRC web client.
 
-**Version incluse :** 1.0.0-beta.9~ynh2
+**Version incluse :** 1.0.0-beta.10~ynh1
 
 **Démo :** <https://web.libera.chat/gamja/>
 
