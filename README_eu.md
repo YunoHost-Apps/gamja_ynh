@@ -5,7 +5,9 @@ EZ editatu eskuz.
 
 # Gamja YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/gamja.svg)](https://ci-apps.yunohost.org/ci/apps/gamja/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/gamja.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/gamja.maintain.svg)
+[![Integrazio maila](https://apps.yunohost.org/badge/integration/gamja)](https://ci-apps.yunohost.org/ci/apps/gamja/)
+![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/gamja)
+![Mantentze egoera](https://apps.yunohost.org/badge/maintained/gamja)
 
 [![Instalatu Gamja YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gamja)
 
@@ -18,7 +20,7 @@ EZ editatu eskuz.
 
 A simple IRC web client.
 
-**Paketatutako bertsioa:** 1.0.0-beta.9~ynh2
+**Paketatutako bertsioa:** 1.0.0-beta.10~ynh1
 
 **Demoa:** <https://web.libera.chat/gamja/>
 
@@ -29,7 +31,7 @@ A simple IRC web client.
 ## Dokumentazioa eta baliabideak
 
 - Aplikazioaren webgune ofiziala: <https://web.libera.chat/gamja/>
-- Jatorrizko aplikazioaren kode-gordailua: <https://sr.ht/~emersion/gamja/>
+- Jatorrizko aplikazioaren kode-gordailua: <https://codeberg.org/emersion/gamja>
 - YunoHost Denda: <https://apps.yunohost.org/app/gamja>
 - Eman errore baten berri: <https://github.com/YunoHost-Apps/gamja_ynh/issues>
 

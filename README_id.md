@@ -5,7 +5,9 @@ Ini TIDAK boleh diedit dengan tangan.
 
 # Gamja untuk YunoHost
 
-[![Tingkat integrasi](https://dash.yunohost.org/integration/gamja.svg)](https://ci-apps.yunohost.org/ci/apps/gamja/) ![Status kerja](https://ci-apps.yunohost.org/ci/badges/gamja.status.svg) ![Status pemeliharaan](https://ci-apps.yunohost.org/ci/badges/gamja.maintain.svg)
+[![Tingkat integrasi](https://apps.yunohost.org/badge/integration/gamja)](https://ci-apps.yunohost.org/ci/apps/gamja/)
+![Status kerja](https://apps.yunohost.org/badge/state/gamja)
+![Status pemeliharaan](https://apps.yunohost.org/badge/maintained/gamja)
 
 [![Pasang Gamja dengan YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gamja)
 
@@ -18,7 +20,7 @@ Ini TIDAK boleh diedit dengan tangan.
 
 A simple IRC web client.
 
-**Versi terkirim:** 1.0.0-beta.9~ynh2
+**Versi terkirim:** 1.0.0-beta.10~ynh1
 
 **Demo:** <https://web.libera.chat/gamja/>
 
@@ -29,7 +31,7 @@ A simple IRC web client.
 ## Dokumentasi dan sumber daya
 
 - Website aplikasi resmi: <https://web.libera.chat/gamja/>
-- Depot kode aplikasi hulu: <https://sr.ht/~emersion/gamja/>
+- Depot kode aplikasi hulu: <https://codeberg.org/emersion/gamja>
 - Gudang YunoHost: <https://apps.yunohost.org/app/gamja>
 - Laporkan bug: <https://github.com/YunoHost-Apps/gamja_ynh/issues>
 

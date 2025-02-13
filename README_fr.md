@@ -5,7 +5,9 @@ Il NE doit PAS être modifié à la main.
 
 # Gamja pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/gamja.svg)](https://ci-apps.yunohost.org/ci/apps/gamja/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/gamja.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/gamja.maintain.svg)
+[![Niveau d’intégration](https://apps.yunohost.org/badge/integration/gamja)](https://ci-apps.yunohost.org/ci/apps/gamja/)
+![Statut du fonctionnement](https://apps.yunohost.org/badge/state/gamja)
+![Statut de maintenance](https://apps.yunohost.org/badge/maintained/gamja)
 
 [![Installer Gamja avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gamja)
 
@@ -18,7 +20,7 @@ Il NE doit PAS être modifié à la main.
 
 A simple IRC web client.
 
-**Version incluse :** 1.0.0-beta.9~ynh2
+**Version incluse :** 1.0.0-beta.10~ynh1
 
 **Démo :** <https://web.libera.chat/gamja/>
 
@@ -29,7 +31,7 @@ A simple IRC web client.
 ## Documentations et ressources
 
 - Site officiel de l’app : <https://web.libera.chat/gamja/>
-- Dépôt de code officiel de l’app : <https://sr.ht/~emersion/gamja/>
+- Dépôt de code officiel de l’app : <https://codeberg.org/emersion/gamja>
 - YunoHost Store : <https://apps.yunohost.org/app/gamja>
 - Signaler un bug : <https://github.com/YunoHost-Apps/gamja_ynh/issues>
 
