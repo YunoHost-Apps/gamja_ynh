@@ -20,7 +20,7 @@ It shall NOT be edited by hand.
 
 A simple IRC web client.
 
-**Shipped version:** 1.0.0-beta.9~ynh2
+**Shipped version:** 1.0.0-beta.10~ynh1
 
 **Demo:** <https://web.libera.chat/gamja/>
 
