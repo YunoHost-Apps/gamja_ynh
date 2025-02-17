@@ -20,7 +20,7 @@
 
 A simple IRC web client.
 
-**Поставляемая версия:** 1.0.0-beta.10~ynh1
+**Поставляемая версия:** 1.0.0-beta.10~ynh2
 
 **Демо-версия:** <https://web.libera.chat/gamja/>
 

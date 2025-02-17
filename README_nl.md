@@ -20,7 +20,7 @@ Hij mag NIET handmatig aangepast worden.
 
 A simple IRC web client.
 
-**Geleverde versie:** 1.0.0-beta.10~ynh1
+**Geleverde versie:** 1.0.0-beta.10~ynh2
 
 **Demo:** <https://web.libera.chat/gamja/>
 
