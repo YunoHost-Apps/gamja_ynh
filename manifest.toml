@@ -7,7 +7,7 @@ name = "Gamja"
 description.en = "Simple IRC web client"
 description.fr = "Simple IRC web client"
 
-version = "1.0.0-beta.10~ynh2"
+version = "1.0.0-beta.10~ynh3"
 
 maintainers = ["eric_G"]
 
@@ -45,8 +45,8 @@ ram.runtime = "50M"
     sha256 = "c6b3d4b6fbc407813a6e0c9a3d0bc6c1e4253064e40a42b0c47233df7c0564d5"
 
     [resources.sources.webircgateway]
-    url = "https://github.com/kiwiirc/webircgateway/archive/3f07ecfe0d7753ebebdf3e0b0d5d1d0bfdb9af29.tar.gz"
-    sha256 = "69f4236752555b0021a124ef8e265b67061c8f67c739558e05af47a4d914186a"
+    url = "https://github.com/kiwiirc/webircgateway/archive/be9fd5be5d995184d61fac64fc1742ceca25e05f.tar.gz"
+    sha256 = "d240dc965d8c3700e9c2b2064d3b040b88ccadf454f99230b1de9c01ddce3800"
     autoupdate.upstream = "https://github.com/kiwiirc/webircgateway"
     autoupdate.strategy = "latest_github_commit"
 
