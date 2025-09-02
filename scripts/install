@@ -4,7 +4,7 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-source _common.sh
+
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -12,8 +12,8 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression --message="Installing dependencies..." --weight=7
 
-ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
-ynh_exec_warn_less ynh_install_go --go_version=$go_version
+#REMOVEME? ynh_exec_warn_less #REMOVEME? ynh_install_nodejs --#REMOVEME? nodejs_version=$nodejs_version
+#REMOVEME? ynh_exec_warn_less #REMOVEME? ynh_install_go --#REMOVEME? go_version=$go_version
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -32,7 +32,7 @@ chown -R $app:www-data "$install_dir"
 ynh_script_progression --message="Building app... (this will take some time and resources!)" --weight=20
 
 pushd "$install_dir"
-	ynh_use_nodejs
+	#REMOVEME? ynh_use_nodejs
 	ynh_exec_warn_less npm i -g npm
 	ynh_exec_warn_less npm install --production
 popd
@@ -59,7 +59,7 @@ mkdir -p $webircgateway_path
 tempdir="$(mktemp -d)"
 ynh_setup_source --dest_dir=$tempdir --source_id="webircgateway"
 pushd $tempdir
-	ynh_use_go
+	#REMOVEME? ynh_use_go
 	export GOPATH="$tempdir/go"
 	export GOCACHE="$tempdir/.cache"
 	ynh_go build
@@ -68,7 +68,7 @@ popd
 mv -f $tempdir/webircgateway $webircgateway_path/webircgateway
 
 ynh_secure_remove --file="$tempdir"
-ynh_remove_go
+#REMOVEME? ynh_remove_go
 
 chmod 755 "$webircgateway_path"
 chmod -R o-rwx "$webircgateway_path"

@@ -18,7 +18,7 @@ demo = "https://web.libera.chat/gamja/"
 code = "https://codeberg.org/emersion/gamja"
 
 [integration]
-yunohost = ">= 11.2.12"
+yunohost = ">= 12.1.17"
 architectures = "all"
 multi_instance = true
 
@@ -58,3 +58,9 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.ports]
+
+    [resources.nodejs]
+    version = "20"
+
+    [resources.go]
+    version = "1.20"
