@@ -13,6 +13,18 @@ ynh_script_progression "Restoring the app main directory..."
 
 ynh_restore "$install_dir"
 
+webircgateway_path=/var/www/webircgateway
+ynh_app_setting_set --key=webircgateway_path --value=$webircgateway_path
+mkdir -p $webircgateway_path
+
+chmod 755 "$webircgateway_path"
+chmod -R o-rwx "$webircgateway_path"
+chown -R $app:www-data "$webircgateway_path"
+chmod +x "$webircgateway_path/webircgateway"
+
+chmod 755 "$webircgateway_path/config.conf"
+chown $app:www-data "$webircgateway_path/config.conf"
+
 #=================================================
 # RESTORE THE NGINX CONFIGURATION
 #=================================================
