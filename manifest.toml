@@ -18,7 +18,7 @@ demo = "https://web.libera.chat/gamja/"
 code = "https://codeberg.org/emersion/gamja"
 
 [integration]
-yunohost = ">= 11.2.18"
+yunohost = ">= 12.1.38"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
