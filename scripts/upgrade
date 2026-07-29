@@ -57,7 +57,6 @@ popd
 mv -f $tempdir/webircgateway $webircgateway_path/webircgateway
 
 ynh_safe_rm "$tempdir"
-ynh_go_remove
 
 chmod 755 "$webircgateway_path"
 chmod -R o-rwx "$webircgateway_path"

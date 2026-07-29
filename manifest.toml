@@ -43,7 +43,7 @@ ram.runtime = "50M"
 
     [resources.sources.main]
     url = "https://codeberg.org/emersion/gamja/archive/v1.0.0-beta.10.tar.gz"
-    sha256 = "c6b3d4b6fbc407813a6e0c9a3d0bc6c1e4253064e40a42b0c47233df7c0564d5"
+    sha256 = "d55ea75b4b6e52e3edfbb7da0dd73947886c26f3c90b13c0dfe902940214dd07"
 
     [resources.sources.webircgateway]
     url = "https://github.com/kiwiirc/webircgateway/archive/be9fd5be5d995184d61fac64fc1742ceca25e05f.tar.gz"
