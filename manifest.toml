@@ -45,6 +45,8 @@ ram.runtime = "50M"
     url = "https://codeberg.org/emersion/gamja/archive/v1.0.0-beta.10.tar.gz"
     sha256 = "d55ea75b4b6e52e3edfbb7da0dd73947886c26f3c90b13c0dfe902940214dd07"
 
+    autoupdate.strategy = "latest_forgejo_release"
+
     [resources.sources.webircgateway]
     url = "https://github.com/kiwiirc/webircgateway/archive/be9fd5be5d995184d61fac64fc1742ceca25e05f.tar.gz"
     sha256 = "d240dc965d8c3700e9c2b2064d3b040b88ccadf454f99230b1de9c01ddce3800"
