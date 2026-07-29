@@ -7,7 +7,7 @@ name = "Gamja"
 description.en = "Simple IRC web client"
 description.fr = "Simple IRC web client"
 
-version = "1.0.0-beta.10~ynh3"
+version = "1.0.0-beta.11~ynh1"
 
 maintainers = ["eric_G"]
 
@@ -18,7 +18,7 @@ demo = "https://web.libera.chat/gamja/"
 code = "https://codeberg.org/emersion/gamja"
 
 [integration]
-yunohost = ">= 11.2.18"
+yunohost = ">= 12.1.38"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
@@ -42,8 +42,10 @@ ram.runtime = "50M"
     [resources.sources]
 
     [resources.sources.main]
-    url = "https://codeberg.org/emersion/gamja/archive/v1.0.0-beta.10.tar.gz"
-    sha256 = "d55ea75b4b6e52e3edfbb7da0dd73947886c26f3c90b13c0dfe902940214dd07"
+    url = "https://codeberg.org/emersion/gamja/archive/v1.0.0-beta.11.tar.gz"
+    sha256 = "6c252f91f155d3bd67967fe45172c714e5905ff8f25c2bc82cc0048f5ef92be0"
+
+    autoupdate.strategy = "latest_forgejo_release"
 
     [resources.sources.webircgateway]
     url = "https://github.com/kiwiirc/webircgateway/archive/be9fd5be5d995184d61fac64fc1742ceca25e05f.tar.gz"
